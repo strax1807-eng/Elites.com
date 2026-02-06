@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
 <title>True Elites</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@300;500&display=swap');
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -55,25 +52,49 @@ h1 {
     font-family: monospace;
 }
 
-.staff {
+/* ===== STAFF CARDS ===== */
+.staff-cards {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 30px;
     flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.staff div {
-    background: rgba(255,255,255,0.08);
-    padding: 20px 30px;
-    border-radius: 12px;
+.discord-card {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
 }
 
-.staff h3 {
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.discord-card span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
     color: #ff4b4b;
-    margin: 0;
 }
 
+/* Status glow */
+.online .avatar { box-shadow: 0 0 25px rgba(0,255,0,0.9); }
+.idle .avatar   { box-shadow: 0 0 25px rgba(255,200,0,0.9); }
+.dnd .avatar    { box-shadow: 0 0 25px rgba(255,0,0,1); }
+
+/* Fade animation */
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons */
 .join-btn {
     display: inline-block;
     margin-top: 40px;
@@ -86,10 +107,9 @@ h1 {
     box-shadow: 0 0 20px rgba(255,0,0,0.6);
     transition: transform 0.2s;
 }
+.join-btn:hover { transform: scale(1.08); }
 
-.join-btn:hover {
-    transform: scale(1.08);
-}
+/* TikTok */
 .tiktok-btn {
     display: inline-block;
     margin-top: 20px;
@@ -98,15 +118,17 @@ h1 {
     text-decoration: none;
     color: white;
     font-size: 1.1rem;
-    background: linear-gradient(135deg, #000000, #111111);
-    box-shadow: 
-        0 0 10px rgba(0, 255, 255, 0.6),
-        0 0 20px rgba(255, 0, 255, 0.4);
-    transition: transform 0.2s;
+    background: #000;
+    box-shadow:
+        0 0 10px rgba(37,244,238,0.8),
+        0 0 20px rgba(254,44,85,0.8);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .tiktok-btn:hover {
     transform: scale(1.08);
+    box-shadow:
+        0 0 15px rgba(37,244,238,1),
+        0 0 30px rgba(254,44,85,1);
 }
 
 footer {
@@ -126,50 +148,65 @@ footer {
 
 <div class="server-box">
 <div class="server-text">
-╰› active    ⟡     new  ⛩    add    pfps × banners ﹒⠀
-𑣲        ╰›▬▬ι═ not strict═══ﺤ ノ    メ anime
->⩊<   ⌞We’ll see what our server turns into..】
+╰› active ⟡ new ⛩ add pfps × banners
+𑣲 ╰›▬▬ι═ not strict═══ﺤ ノ メ anime
+>⩊< ⌞We’ll see what our server turns into to..】
 </div>
 </div>
 
 <h2 style="margin-top:40px;">👑 Staff</h2>
-<div class="staff">
-    <div>
-        <h3>Founder</h3>
-        <p>Strax</p>
-        <p>Leo</p>
-    </div>
-<div>
-    <h3>Co-Founder</h3>
-    <p>Pepe</p>
-</div>
 
-<div>
-    <h3>CEO</h3>
-    <p>Koko</p>
-</div>
-
-
-
-<p style="margin-top:40px;">
-We do <strong>a lot of cool stuff, giveaways, anime related, keeping it fun <strong>and not strict❤️
-</p>
-
-<a class="join-btn" href="https://discord.gg/ptMZ2udMqG" target="_blank">
-Join the Discord 🚀
+<div class="staff-cards">
+<a href="https://discord.com/users/925339379751329852" target="_blank" class="discord-card" data-id="925339379751329852">
+    <img class="avatar" src="https://cdn.discordapp.com/avatars/925339379751329852/a_08086420f12612ec7e196b2ae85feb20.gif">
+    <span>Strax #1 True Owner</span>
 </a>
 
-<br><br>
-
-<a class="tiktok-btn" href="https://www.tiktok.com/@strax_yy" target="_blank">
-Follow on TikTok 🎵
+<a href="https://discord.com/users/1327983625144238092" target="_blank" class="discord-card" data-id="1327983625144238092">
+    <img class="avatar" src="https://cdn.discordapp.com/avatars/1327983625144238092/7ef707180f9e9555b78b40fced2e5d18.webp">
+    <span>Leo</span>
 </a>
 
-<footer>
-© TrueElites.com
-</footer>
+<a href="https://discord.com/users/1137672913198260234" target="_blank" class="discord-card" data-id="1137672913198260234">
+    <img class="avatar" src="https://cdn.discordapp.com/avatars/1137672913198260234/073e5ef448d4e24a36437d8d5d279421.webp">
+    <span>Pepe</span>
+</a>
+
+<a href="https://discord.com/users/1114657059913343117" target="_blank" class="discord-card" data-id="1114657059913343117">
+    <img class="avatar" src="https://cdn.discordapp.com/avatars/1114657059913343117/d8564ac76e341bff6a4003e96afe4cd9.webp">
+    <span>Koko</span>
+</a>
+</div>
+
+<a class="join-btn" href="https://discord.gg/ptMZ2udMqG" target="_blank">Join the Discord 🚀</a><br>
+
+<a class="tiktok-btn" href="https://www.tiktok.com/@strax_yy" target="_blank">Follow on TikTok 🎵</a>
+
+<footer>© TrueElites.com</footer>
 
 </div>
 </div>
+
+<script>
+const REFRESH_INTERVAL = 30000;
+
+function updateStaffStatus() {
+    document.querySelectorAll('.discord-card').forEach(card => {
+        const id = card.dataset.id;
+        fetch(`https://api.lanyard.rest/v1/users/${id}`)
+            .then(res => res.json())
+            .then(res => {
+                card.classList.remove('online','idle','dnd');
+                const status = res.data?.discord_status;
+                if (status) card.classList.add(status);
+            })
+            .catch(err => console.log(err));
+    });
+}
+
+updateStaffStatus();
+setInterval(updateStaffStatus, REFRESH_INTERVAL);
+</script>
+
 </body>
 </html>
